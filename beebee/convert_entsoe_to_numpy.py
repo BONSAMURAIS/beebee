@@ -2,7 +2,6 @@ from arborist import get_metadata
 from bentso.iterators import iterate_generation, iterate_trade, COUNTRIES
 from itertools import count
 from pathlib import Path
-from tqdm import tqdm
 import itertools
 import json
 import numpy as np
@@ -26,11 +25,9 @@ ACTIVITY_MAPPING = {
     'Wind Offshore': 'Production of electricity by wind',
     'Wind Onshore': 'Production of electricity by wind',
     'Fossil Oil': 'Production of electricity by petroleum and other oil derivatives',
-    # TODO: Check
     'Fossil Oil shale': 'Production of electricity by petroleum and other oil derivatives',
     'Biomass': 'Production of electricity by biomass and waste',
-    # TODO: Check
-    'Fossil Peat': 'Production of electricity by biomass and waste',
+    'Fossil Peat': 'Production of electricity by coal',
     'Waste': 'Production of electricity by biomass and waste',
     'Solar': 'Production of electricity by solar thermal',
     'Other renewable': 'Production of electricity by tide, wave, ocean',
@@ -51,11 +48,9 @@ FLOW_MAPPING = {
     'Wind Offshore': 'Electricity by wind',
     'Wind Onshore': 'Electricity by wind',
     'Fossil Oil': 'Electricity by petroleum and other oil derivatives',
-    # TODO: Check
     'Fossil Oil shale': 'Electricity by petroleum and other oil derivatives',
     'Biomass': 'Electricity by biomass and waste',
-    # TODO: Check
-    'Fossil Peat': 'Electricity by biomass and waste',
+    'Fossil Peat': 'Production of electricity by coal',
     'Waste': 'Electricity by biomass and waste',
     'Solar': 'Electricity by solar thermal',
     'Other renewable': 'Electricity by tide, wave, ocean',

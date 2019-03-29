@@ -41,6 +41,8 @@ setup(
     install_requires=[
         'docopt',
         'numpy',
+        'arborist',
+        'bentso',
     ],
     url="https://github.com/BONSAMURAIS/beebee",
     long_description=open('README.md').read(),
