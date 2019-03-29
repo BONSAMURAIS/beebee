@@ -37,7 +37,7 @@ ACTIVITY_MAPPING = {
     'Geothermal': 'Production of electricity by Geothermal',
     'Other': 'Production of electricity nec',
     'Marine': 'Production of electricity nec',
-    'Trade': "Distribution and trade of electricity",
+    'Grid': "Market for Electricity",
 }
 FLOW_MAPPING = {
     'Fossil Hard coal': 'Electricity by coal',
@@ -62,7 +62,7 @@ FLOW_MAPPING = {
     'Geothermal': 'Electricity by Geothermal',
     'Other': 'Electricity nec',
     'Marine': 'Electricity nec',
-    'Trade': "Distribution and trade services of electricity",
+    'Grid': "Electricity",
 }
 
 
@@ -97,13 +97,13 @@ def convert_entsoe_to_numpy(year, rdf_base_dir):
     for technology, country, amount in iterate_generation(year):
         use[
             row_mapping[(country, FLOW_MAPPING[technology])],
-            col_mapping[(country, ACTIVITY_MAPPING['Trade'])],
+            col_mapping[(country, ACTIVITY_MAPPING['Grid'])],
         ] += amount
 
     for from_, to_, amount in iterate_trade(year):
         use[
-            row_mapping[(from_, FLOW_MAPPING['Trade'])],
-            col_mapping[(to_, ACTIVITY_MAPPING['Trade'])],
+            row_mapping[(from_, FLOW_MAPPING['Grid'])],
+            col_mapping[(to_, ACTIVITY_MAPPING['Grid'])],
         ] += amount
 
     with tempfile.TemporaryDirectory() as t:
