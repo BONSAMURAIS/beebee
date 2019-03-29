@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3] - 2019-03-29
+
+### Changed
+
+- Add another function that doesn't convert labels to EXIOBASE nomenclature
+
 ## [0.2] - 2019-03-29
 
 ### Changed
