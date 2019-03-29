@@ -64,13 +64,13 @@ FLOW_MAPPING = {
 def convert_entsoe_to_numpy(year, rdf_base_dir):
     metadata = get_metadata(rdf_base_dir)
 
-    nrows = len(COUNTRIES) * len(FLOW_MAPPING.values())
-    ncols = len(COUNTRIES) * len(ACTIVITY_MAPPING.values())
+    nrows = len(COUNTRIES) * len(set(FLOW_MAPPING.values()))
+    ncols = len(COUNTRIES) * len(set(ACTIVITY_MAPPING.values()))
     supply = np.zeros((nrows, ncols), dtype=np.float32)
     use = np.zeros((nrows, ncols), dtype=np.float32)
 
-    sorted_flow_values = sorted(FLOW_MAPPING.values())
-    sorted_activity_values = sorted(ACTIVITY_MAPPING.values())
+    sorted_flow_values = sorted(set(FLOW_MAPPING.values()))
+    sorted_activity_values = sorted(set(ACTIVITY_MAPPING.values()))
     sorted_countries = sorted(COUNTRIES)
 
     col_mapping = {
